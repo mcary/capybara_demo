@@ -26,6 +26,7 @@ gem 'jquery-rails'
 group :test, :development do
     gem "rspec-rails", "~> 2.0"
     gem "capybara"
+    gem "spork", "~> 0.9.2"
 end
 
 # To use ActiveModel has_secure_password
