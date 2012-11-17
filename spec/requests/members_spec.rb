@@ -45,14 +45,14 @@ describe "RX homepage" do
           initial_speakers = Hash.new
           page.all(".speaker .caption", :visible => true).each do |capt|
             initial_speakers[capt.text] = true
-            Rails.logger.debug "before: "+capt.text
+            logger.debug "before: "+capt.text
           end
 
           find(".control-right").click
           should_load_four_speakers
 
           page.all(".speaker .caption", :visible => true).each do |capt|
-            Rails.logger.debug "after: "+capt.text
+            logger.debug "after: "+capt.text
             initial_speakers.should_not have_key(capt.text)
           end
         end
