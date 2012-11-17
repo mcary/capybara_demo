@@ -34,6 +34,32 @@ Spork.prefork do
     config.include Capybara::DSL
     config.include Capybara::RSpecMatchers
 
+    # Without Rails, Capybara Screenshot is having trouble finding the root dir
+    Capybara.save_and_open_page_path =
+      File.dirname(File.dirname(__FILE__))+"/tmp/capybara"
+
+    # Capybara Screenshot also works only for :type => :request by default
+    config.after do
+      if Capybara::Screenshot.autosave_on_failure && example.exception
+        filename_prefix =
+          Capybara::Screenshot.filename_prefix_for(:rspec, example)
+
+        saver =
+          Capybara::Screenshot::Saver.new(Capybara, Capybara.page,
+                                          true, filename_prefix)
+        saver.save
+
+        example.metadata[:full_description] +=
+          "\n     Screenshot: #{saver.screenshot_path}"
+      end
+    end
+
+    # Setup some logging since Rails.logger is unavailable
+    config.before(:each) do
+      descr = "Starting spec: #{example.metadata[:full_description]}"
+      logger.info "#{descr}"
+    end
+
     require 'logger'
     config.include(
       Module.new do
