@@ -15,11 +15,29 @@ h2. Setup
 
 Assuming you have Ruby, Rubygems, and bundler installed:
 
- git clone ...
+ git clone https://github.com/mcary/capybara_demo.git
+ cd capybara_demo/
  bundle install
- rspec spec/
 
 You'll also need Firefox installed to run the browser tests.
+
+To run specs:
+
+ bundle exec rspec spec/
+
+h2. Reference Docs
+
+For more on how to write specs with Capybara, check out the
+Capybara DSL:
+
+* https://github.com/jnicklas/capybara#the-dsl
+* http://rubydoc.info/github/jnicklas/capybara/master
+
+And for writing specs in general, check out RSpec docs.  (But
+note that much of RSpec targets writing unit tests rather than
+browser-level integration tests.)
+
+* http://rspec.info/
 
 h2. Next Steps
 
