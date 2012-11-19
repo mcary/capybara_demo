@@ -1,41 +1,33 @@
 h1. Capybara Demo
 
-This project is a demo of Capybara with Selenium to be used for
-automated browser testing with RSpec.  Capybara::Screenshot and
-spork are also present.
+This project is a demo of Capybara with Selenium to be used for automated browser testing with RSpec.  Capybara::Screenshot and spork are also present.
 
 h2. Rationale
 
-This setup started out as a Rails app, but now has those parts
-removed on the assuption that this will be used primarily for
-testing non-Rails apps.  As a result, all the support for
-fixtures and direct database access is removed.
+This setup started out as a Rails app, but now has those parts removed on the assuption that this will be used primarily for testing non-Rails apps.  As a result, all the support for fixtures and direct database access is removed.
 
 h2. Setup
 
 Assuming you have Ruby, Rubygems, and bundler installed:
 
- git clone https://github.com/mcary/capybara_demo.git
- cd capybara_demo/
- bundle install
+bc. git clone https://github.com/mcary/capybara_demo.git
+cd capybara_demo/
+bundle install
 
 You'll also need Firefox installed to run the browser tests.
 
 To run specs:
 
- bundle exec rspec spec/
+bc. bundle exec rspec spec/
 
 h2. Reference Docs
 
-For more on how to write specs with Capybara, check out the
-Capybara DSL:
+For more on how to write specs with Capybara, check out the Capybara DSL:
 
 * https://github.com/jnicklas/capybara#the-dsl
 * http://rubydoc.info/github/jnicklas/capybara/master
 
-And for writing specs in general, check out RSpec docs.  (But
-note that much of RSpec targets writing unit tests rather than
-browser-level integration tests.)
+And for writing specs in general, check out RSpec docs.  (But note that much of RSpec targets writing unit tests rather than browser-level integration tests.)
 
 * http://rspec.info/
 
